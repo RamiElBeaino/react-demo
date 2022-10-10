@@ -1,16 +1,29 @@
-import logo from './logo.svg';
-import './App.css';
+import {React, useState} from "react"
+import logo from "./logo.svg";
+import "./App.css";
 
 function App() {
+  const [counter, setCounter] = useState(0)
+
+  const onClickStart = () => {
+    setCounter(counter+1)
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <h2>WOOHOO! YOU DID IT!</h2><p>Send '<b>🧸🫣🚣</b>' in Discord if you got this far! (iykyk)</p>
-        <small>
-          Edit <code>src/App.js</code> and save to reload.
-        </small>
-      </header>
+    <div className="app">
+      <div className="top">
+        <p className="application">My Stopwatch</p>
+        <p className="artist">By @TheCutieR7</p>
+      </div>
+      <div className="body">
+        <div className="clock">
+          <div className="timer">00 : 0{counter}</div>
+          <div className="buttons">
+            <button className="start button" onClick={onClickStart}>Start</button>
+            <button className="stop button">Stop</button>
+          </div>
+        </div>
+      </div>
     </div>
   );
 }
